@@ -8,7 +8,18 @@ export default function App() {
   useEffect(() => {
     // Efeito para a animação da largura
 
-    Animated.loop(Animated.sequence([])).start();
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(largAnimated, {
+          toValue: 300,
+          duration: 500,
+        }),
+        Animated.timing(largAnimated, {
+          toValue: 150,
+          duration: 500,
+        }),
+      ])
+    ).start();
   }, [largAnimated]);
 
   return (
